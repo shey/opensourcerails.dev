@@ -62,7 +62,6 @@ gem 'rollbar'
 gem 'sidekiq'
 gem 'sidekiq-scheduler', '~> 3.1'
 gem 'simple_form'
-gem 'skylight', '~> 5.1'
 gem 'importmap-rails'
 gem 'geocoder'
 
