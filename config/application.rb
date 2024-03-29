@@ -27,7 +27,6 @@ module Opensourcerails
     config.active_storage.urls_expire_in = 1.week
 
     config.load_defaults 6.1
-    config.skylight.environments = ['production']
     config.exceptions_app = routes
   end
 end

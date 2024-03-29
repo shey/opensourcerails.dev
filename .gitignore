@@ -38,3 +38,5 @@ yarn-debug.log*
 /storage
 
 /config/credentials/production.key
+
+.ruby-version
