@@ -11,15 +11,23 @@ Have one to suggest? [Click here](https://github.com/opensourcerails-org/suggest
 
 ## Quirks and features
 
-There's a lot of cleaning up that could be done, but in my mad-dash of a weekend project, it's pretty okay.
+1. There's an AdminUser model. There's an admin panel at `/admin`
 
-## Production requirements
+## Production / Operations
 
-As of this blame, production hums along nicely at ~800MB of RAM due to a lot of in-memory caching. Assume 2GB to be safe.
+1. As of this blame, production hums along nicely at ~800MB of RAM due to a lot of in-memory caching. Assume 2GB to be safe.
+
+1. "Cron" scheduled via `sidekiq-scheduler`
+
+
+## Getting into the code
+
+1. Start with `ScanProjectWorker`.
 
 ## Todos
 
-Probably test.
+1. Probably test.
+1. Remove cloudflare dependency. Move images to local storage.
 
 ## Other reading material
 
