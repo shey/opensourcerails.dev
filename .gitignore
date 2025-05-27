@@ -40,3 +40,4 @@ yarn-debug.log*
 /config/credentials/production.key
 
 .ruby-version
+dump.rdb
