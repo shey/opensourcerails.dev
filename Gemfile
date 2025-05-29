@@ -13,6 +13,7 @@ gem 'rails', '~> 7'
 gem 'redis', '~> 4.0', require: ['redis', 'redis/connection/hiredis']
 gem 'sass-rails', '>= 6'
 gem 'sprockets-rails'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
@@ -41,10 +42,6 @@ group :development do
   gem "dotenv-deployment"
   gem "ed25519"
   gem "bcrypt_pbkdf"
-end
-
-group :production do
-  gem 'cloudflare-rails'
 end
 
 gem 'activeadmin'
