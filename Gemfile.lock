@@ -104,22 +104,6 @@ GEM
       activerecord (>= 5.0.0, < 7.1)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
-    aws-eventstream (1.1.1)
-    aws-partitions (1.488.0)
-    aws-sdk-core (3.119.0)
-      aws-eventstream (~> 1, >= 1.0.2)
-      aws-partitions (~> 1, >= 1.239.0)
-      aws-sigv4 (~> 1.1)
-      jmespath (~> 1.0)
-    aws-sdk-kms (1.46.0)
-      aws-sdk-core (~> 3, >= 3.119.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.99.0)
-      aws-sdk-core (~> 3, >= 3.119.0)
-      aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.1)
-    aws-sigv4 (1.2.4)
-      aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
     bcrypt (3.1.18)
     bcrypt_pbkdf (1.1.1)
@@ -247,7 +231,6 @@ GEM
       has_scope (~> 0.6)
       railties (>= 5.2, < 7.1)
       responders (>= 2, < 4)
-    jmespath (1.4.0)
     jquery-rails (4.5.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -493,7 +476,6 @@ DEPENDENCIES
   acts-as-taggable-on
   ahoy_matey (~> 4.0)
   attr_json
-  aws-sdk-s3
   bcrypt_pbkdf
   better_errors
   binding_of_caller
