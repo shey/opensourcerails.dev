@@ -1,39 +1,78 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.19.2"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+# server settings
+set :application, "osr"
+set :repo_url, "git@github.com:shey/opensourcerails.dev.git"
+set :user, "rails"
+set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"
+set :ssh_options, {forward_agent: true}
 
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+# rbenv settings
+set :rbenv_type, :user
+set :rbenv_ruby, "3.1.2"
+set :rbenv_roles, [:app, :db]
 
-# Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+# Bundler settings
+set :bundle_jobs, "1"
+set :bundle_roles, [:app, :db]
 
-# Default value for :format is :airbrussh.
-# set :format, :airbrussh
+# output
+set :format, :airbrussh
+set :log_level, :info
 
-# You can configure the Airbrussh format using :format_options.
-# These are the defaults.
-# set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
+# multistage
+set :default_staging, "production"
 
-# Default value for :pty is false
-# set :pty, true
+set :linked_files, %w[.env]
+set :linked_dirs, fetch(:linked_dirs, []).push(*%w[log pids bundle])
 
-# Default value for :linked_files is []
-# append :linked_files, "config/database.yml", 'config/master.key'
+set :assets_roles, [:web, :app]
+set :branch, ENV["BRANCH"] || "main"
 
-# Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor", "storage"
+before :deploy, "deploy:confirm"
+after "deploy:starting", "sidekiq:quiet"
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+namespace :deploy do
+  desc "Setup shared deploy directories"
+  task :setup do
+    invoke "git:check"
+    invoke "deploy:check:directories"
+    invoke "deploy:check:linked_dirs"
+    invoke "deploy:check:make_linked_dirs"
+  end
 
-# Default value for local_user is ENV['USER']
-# set :local_user, -> { `git config user.name`.chomp }
+  desc "Prompt for user confirmation for production deploy"
+  task :confirm do
+    if fetch(:stage) == :production
+      puts "Are you sure you want to deploy to production? (yes/no)"
+      ask(:answer, "no")
+      unless fetch(:answer) == "yes"
+        puts "Exiting deploy"
+        exit
+      end
+    end
+  end
 
-# Default value for keep_releases is 5
-# set :keep_releases, 5
+  desc "Stop everything!"
+  task :stop do
+    invoke "puma:stop"
+    invoke "sidekiq:stop"
+  end
 
-# Uncomment the following to require manually verifying the host key before first deploy.
-# set :ssh_options, verify_host_key: :secure
+  desc "Start everything"
+  task :start do
+    invoke "puma:start"
+    invoke "sidekiq:start"
+  end
+
+  desc "Restart application"
+  task :restart do
+    on roles(:app, :sidekiq), in: :sequence, wait: 5 do
+      invoke "puma:restart"
+      invoke "sidekiq:restart"
+    end
+  end
+
+  after :publishing, :restart
+end
