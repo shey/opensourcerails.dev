@@ -15,7 +15,6 @@ gem 'sass-rails', '>= 6'
 gem 'sprockets-rails'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '~> 2.7'
   gem 'pry'
   gem 'pry-rails'
 end
@@ -71,5 +70,5 @@ gem 'sidekiq-scheduler', '~> 3.1'
 gem 'simple_form'
 gem 'importmap-rails'
 gem 'geocoder'
-
 gem "redcarpet", "~> 3.6"
+gem 'dotenv-rails', '~> 2.7'
