@@ -1,40 +1,57 @@
-# OpenSourceRails.org
+# OpenSourceRails.dev
 
-A directory of open-source Ruby on Rails apps that [joshmn](/joshmn) thinks are worth talking about for some reason or another.
+A directory of open-source Ruby on Rails apps.  
+Originally developed by [joshmn](/joshmn), now maintained by [shey](/shey).
 
-Have one to suggest? [Click here](https://github.com/opensourcerails-org/suggestions/issues/new).
+Have a project to suggest? [Open an issue](https://github.com/opensourcerails-org/suggestions/issues/new).
+
+---
 
 ## Setup
 
-1. Clone the repo
-1. `bin/setup`
-1. Provision a Classic Personal Access Token from [Github](https://github.com/settings/tokens) with :public_repo read access. Update .env.
+1. Clone the repo.
+2. Run `bin/setup`.
+3. Create a [GitHub Personal Access Token](https://github.com/settings/tokens) with `public_repo` read access.
+4. Add it to your `.env`.
 
-## Quirks and features
+---
 
-1. There's an AdminUser model. There's an admin panel at `/admin`
+## Quirks and Features
+
+- The app includes an `AdminUser` model.
+- Admin panel is available at `/admin`.
+
+---
 
 ## Production / Operations
 
-1. As of this blame, production hums along nicely at ~800MB of RAM due to a lot of in-memory caching. Assume 2GB to be safe.
+- As of this writing, production runs comfortably under ~800 MB RAM, thanks to aggressive in-memory caching.
+- Assume 2 GB RAM for safety.
 
 ### Cron via `sidekiq-scheduler`
 
-1. Bulk::Projects::SyncProjectsWorker:, every: '24h'
-1. Bulk::Projects::WeeklySyncProjectsWorker:, every: '7d'
+- `Bulk::Projects::SyncProjectsWorker`: runs every 24h
+- `Bulk::Projects::WeeklySyncProjectsWorker`: runs every 7d
+
+---
 
 ## Adding Entries
 
-1. When adding projects, the "Github Url" is the portion after the domain, "18F/identity-idp" instead of "https://github.com/18F/identity-idp"
+- When adding projects, use the GitHub path format (e.g. `18F/identity-idp`)—not the full URL.
+- After creating an entry, run these workers in order:
+  1. `scrape_meta`
+  2. `scrape_activity`
+  3. `scrape_app`
 
-1. After Adding an entry, start with "scrape_meta" and "scrape_activity", then "scrape_app"
+---
 
-## Todos
+## TODOs
 
-1. Probably test.
-1. Remove cloudflare dependency. Move images to local storage.
+- Add tests.
 
-## Other reading material
+---
 
-* See [VERBIAGE.md](VERBIAGE.md) for what things mean (or try to mean)
-* See [OPERATING.md](OPERATING.md) for the disaster recovery plan (e.g. I die)
+## Other Reading
+
+- [VERBIAGE.md](VERBIAGE.md): Definitions and naming notes.
+- [OPERATING.md](OPERATING.md): Disaster recovery plan (e.g. if I die).
