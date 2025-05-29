@@ -35,6 +35,12 @@ group :development do
   gem 'binding_of_caller'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-bundler"
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-rbenv", "~> 2.2"
+  gem "dotenv-deployment"
+  gem "ed25519"
 end
 
 group :production do
