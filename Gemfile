@@ -41,6 +41,7 @@ group :development do
   gem "capistrano-rbenv", "~> 2.2"
   gem "dotenv-deployment"
   gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 group :production do
