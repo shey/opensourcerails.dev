@@ -6,7 +6,7 @@ default: &default
 
 development:
   <<: *default
-  database: opensourcerails_development
+  database: osr_development
   # connection timeout
   timeout: 5000
   variables:
@@ -14,11 +14,11 @@ development:
 
 test:
   <<: *default
-  database: opensourcerails_test
+  database: osr_test
 
 production:
   <<: *default
-  database: opensourcerails_production
+  database: osr_production
   username: rails
   password: <%= ENV["DATABASE_PASSWORD"] %>
   host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
