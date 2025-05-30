@@ -37,7 +37,8 @@ yarn-debug.log*
 /.idea/*
 /storage
 
+# After forking
 /config/credentials/production.key
-
+/config/credentials.yml.enc
 .ruby-version
 dump.rdb

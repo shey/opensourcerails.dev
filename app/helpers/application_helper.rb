@@ -24,7 +24,7 @@ module ApplicationHelper
       separator: '&mdash;'.html_safe,
       twitter: {
         card: :summary,
-        image: meta_tags.meta_tags.dig(:og, :image) || 'https://opensourcerails.dev/android-chrome-512x512.png',
+        image: image_tag("/android-chrome-512x512.png"),
         description: meta_tags[:description],
         creator: '@joshmn',
         title: meta_tags[:title].present? ? "#{meta_tags[:title]} - OpenSourceRails.dev" : "OpenSourceRails.dev"
@@ -32,7 +32,7 @@ module ApplicationHelper
       og: {
         site_name: 'OpenSourceRails.dev',
         url: request.url,
-        image: 'https://opensourcerails.dev/android-chrome-512x512.png',
+        image: image_tag("/android-chrome-512x512.png"),
         title: meta_tags[:title],
         description: meta_tags[:description]
       }
