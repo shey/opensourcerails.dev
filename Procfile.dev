@@ -1,3 +1,3 @@
-web: rails s
+web: rails s -p 4545
 worker: bundle exec sidekiq
 redis: bundle exec redis-server

@@ -1,7 +1,7 @@
 # OpenSourceRails.dev
 
-A directory of open-source Ruby on Rails apps.  
-Originally developed by [joshmn](/joshmn), now maintained by [shey](/shey).
+A directory of open-source Ruby on Rails apps.
+Originally developed by [joshmn](/joshmn)-- maintained by [shey](/shey).
 
 Have a project to suggest? [Open an issue](https://github.com/opensourcerails-org/suggestions/issues/new).
 
@@ -13,6 +13,7 @@ Have a project to suggest? [Open an issue](https://github.com/opensourcerails-or
 2. Run `bin/setup`.
 3. Create a [GitHub Personal Access Token](https://github.com/settings/tokens) with `public_repo` read access.
 4. Add it to your `.env`.
+5. Start the app with `bin/dev`. App runs on port 4545.
 
 ---
 
@@ -20,6 +21,7 @@ Have a project to suggest? [Open an issue](https://github.com/opensourcerails-or
 
 - The app includes an `AdminUser` model.
 - Admin panel is available at `/admin`.
+- Does not use credentials.yml or master.key
 
 ---
 
@@ -48,3 +50,5 @@ Have a project to suggest? [Open an issue](https://github.com/opensourcerails-or
 ## TODOs
 
 - Fix Images?
+
+---
