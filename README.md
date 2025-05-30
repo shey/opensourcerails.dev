@@ -1,7 +1,11 @@
 # OpenSourceRails.dev
 
 A directory of open-source Ruby on Rails apps.
+
+Forked from [opensourcerails.org](https://github.com/opensourcerails-org/site).
+
 Originally developed by [joshmn](/joshmn)-- maintained by [shey](/shey).
+
 ---
 
 ## Setup
