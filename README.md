@@ -2,9 +2,6 @@
 
 A directory of open-source Ruby on Rails apps.
 Originally developed by [joshmn](/joshmn)-- maintained by [shey](/shey).
-
-Have a project to suggest? [Open an issue](https://github.com/opensourcerails-org/suggestions/issues/new).
-
 ---
 
 ## Setup
