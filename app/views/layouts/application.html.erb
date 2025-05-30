@@ -11,7 +11,7 @@
       <div class="col-12">
         <nav class="navbar navbar-expand-lg navbar-dark px-0 py-3 py-lg-4">
           <a class="navbar-brand font-weight-bold mb-0" href="/" title="OpenSourceRails">
-            <img src="/android-chrome-192x192.png" alt="OpenSourceRails.dev logo" style="max-height:48px;width:auto;">
+            <%= image_tag "/android-chrome-192x192.png", alt: "OpenSourceRails.dev logo", style: "max-height:48px;width:auto;" %>
             <span class="d-none d-lg-inline-block h4">OpenSourceRails</span>
           </a>
 
@@ -41,15 +41,14 @@
                 <a class="nav-link" href="<%= search_path %>">Search</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.rubyonrails.jobs/?utm_source=opensourcerails">Jobs</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="<%= about_path %>">About</a>
               </li>
             </ul>
 
             <div class="navbar-actions">
-              <a href="https://github.com/opensourcerails-org/site" data-text="Submit Project" target="_blank"><img src="/GitHub-Mark-Light-64px.png" height="32px" alt="OpenSourceRails on GitHub" /></a>
+              <%= link_to "https://github.com/shey/opensourcerails.dev/", target: "_blank", data: { text: "Submit Project" } do %>
+                <%= image_tag "/GitHub-Mark-Light-64px.png", height: "32px", alt: "OpenSourceRails on GitHub" %>
+              <% end %>
             </div>
           </div>
         </nav>
@@ -65,12 +64,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9 text-center text-md-left">
-          <p class="h6 font-weight-light mb-2">Copyright &copy; <%= Time.current.year %>. Developed and maintained by
+          <p class="h6 font-weight-light mb-2">Copyright &copy; <%= Time.current.year %>. Developed by
             <a href="https://twitter.com/joshmn" class="line-link text-white font-weight-light" target="_blank" rel="nofollow">@joshmn</a>
           </p>
         </div>
         <div class="col-md-3 text-center text-md-right">
-          <a href="https://github.com/opensourcerails-org/site" class="mr-3"><img src="/GitHub-Mark-Light-32px.png" height="16px" style="margin-top:-3px;"/></a>
+          <%= link_to "https://github.com/opensourcerails-org/site", class: "mr-3" do %>
+            <%= image_tag "/GitHub-Mark-Light-32px.png", height: "16px", style: "margin-top:-3px;" %>
+          <% end %>
           <a href="<%= updates_path %>" class="h6 font-weight-light text-right text-sm-center line-link text-white font-weight-light mr-3">Updates</a>
           <a href="https://twitter.com/joshmn" class="h6 font-weight-light text-right text-sm-center line-link text-white font-weight-light" target="_blank" rel="nofollow">Twitter</a>
         </div>
