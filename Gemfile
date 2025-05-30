@@ -13,9 +13,9 @@ gem 'rails', '~> 7'
 gem 'redis', '~> 4.0', require: ['redis', 'redis/connection/hiredis']
 gem 'sass-rails', '>= 6'
 gem 'sprockets-rails'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '~> 2.7'
   gem 'pry'
   gem 'pry-rails'
 end
@@ -35,10 +35,13 @@ group :development do
   gem 'binding_of_caller'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
-end
-
-group :production do
-  gem 'cloudflare-rails'
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-bundler"
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-rbenv", "~> 2.2"
+  gem "dotenv-deployment"
+  gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 gem 'activeadmin'
@@ -46,7 +49,6 @@ gem 'activeadmin_addons'
 gem 'acts-as-taggable-on'
 gem 'ahoy_matey', '~> 4.0'
 gem 'attr_json'
-gem "aws-sdk-s3", require: false
 gem 'devise', '~> 4.8'
 gem 'draper', '~> 4.0'
 gem 'friendly_id', '~> 5.4'
@@ -64,5 +66,5 @@ gem 'sidekiq-scheduler', '~> 3.1'
 gem 'simple_form'
 gem 'importmap-rails'
 gem 'geocoder'
-
 gem "redcarpet", "~> 3.6"
+gem 'dotenv-rails', '~> 2.7'

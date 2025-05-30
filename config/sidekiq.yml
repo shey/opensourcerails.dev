@@ -1,7 +1,7 @@
 development:
-  :concurrency: 25
+  :concurrency: 2
 production:
-  :concurrency: 25
+  :concurrency: 2
 :queues:
   - [default, 20]
   - [ahoy, 10]
