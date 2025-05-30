@@ -47,11 +47,4 @@ Have a project to suggest? [Open an issue](https://github.com/opensourcerails-or
 
 ## TODOs
 
-- Add tests.
-
----
-
-## Other Reading
-
-- [VERBIAGE.md](VERBIAGE.md): Definitions and naming notes.
-- [OPERATING.md](OPERATING.md): Disaster recovery plan (e.g. if I die).
+- Fix Images?
