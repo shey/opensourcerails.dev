@@ -3,12 +3,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.3.8'
 
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.5'
 gem 'bootstrap', "4.5.3"
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.4'
 gem 'rails', '~> 7'
 gem 'redis', '~> 4.0', require: ['redis', 'redis/connection/hiredis']
 gem 'sass-rails', '>= 6'
