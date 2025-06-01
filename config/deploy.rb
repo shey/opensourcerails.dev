@@ -10,7 +10,6 @@ set :ssh_options, {forward_agent: true}
 
 # rbenv settings
 set :rbenv_type, :user
-set :rbenv_ruby, "3.1.2"
 set :rbenv_roles, [:app, :db]
 
 # Bundler settings
