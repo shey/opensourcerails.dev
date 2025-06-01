@@ -68,3 +68,6 @@ gem 'importmap-rails'
 gem 'geocoder'
 gem "redcarpet", "~> 3.6"
 gem 'dotenv-rails', '~> 2.7'
+gem 'mutex_m'
+gem 'bigdecimal'
+gem 'csv'
