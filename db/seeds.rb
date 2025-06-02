@@ -132,4 +132,27 @@ if Rails.env.development?
     hidden_at: "",
     adjective_list: ["in-production"]
   })
+
+  Project.create!({
+    name: "docuseal",
+    slug: "docuseal",
+    rails_major_version: "8",
+    github: "docusealco/docuseal",
+    github_about: "Open source DocuSign alternative. Create, fill, and sign digital documents ✍️",
+    website: "www.docuseal.com",
+    contributors: "5",
+    dependents: "",
+    stars: "9200",
+    watchers: "42",
+    forks: "671",
+    branch: "master",
+    meta_last_updated_at: "2021-08-26 18:05:53 UTC",
+    description: "Fill out and sign documents.",
+    short_blurb: "Small app -- easy to read.",
+    last_activity_at: "2021-08-26 14:51:22 UTC",
+    color: "#686a6c",
+    last_commit: "c6eae66127e1cabd7c2406758c8aa96e99bd496b",
+    hidden_at: "",
+    adjective_list: ["in-production", "active-development"]
+  })
 end

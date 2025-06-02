@@ -480,6 +480,7 @@ DEPENDENCIES
   acts-as-taggable-on
   ahoy_matey (~> 4.0)
   attr_json
+  base64
   bcrypt_pbkdf
   better_errors
   bigdecimal
