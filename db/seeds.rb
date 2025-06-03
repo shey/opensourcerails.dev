@@ -179,6 +179,7 @@ if Rails.env.development?
     rails_major_version: "8",
     github: "rubygems/rubygems.org",
     github_about: "The Ruby community's gem hosting service.",
+    description: "The Ruby community's gem hosting service.",
     contributors: 421,
     stars: 2400,
     forks: 947,
@@ -186,6 +187,7 @@ if Rails.env.development?
     branch: "master",
     last_commit: "6d8e7b121ef9731fd0b098fc5c4744252692d7a8",
     short_blurb: "Public gem hosting service and API for the Ruby community.",
-    color: "#985f6f"
+    color: "#985f6f",
+    adjective_list: ["in-production", "active-development"]
   )
 end
