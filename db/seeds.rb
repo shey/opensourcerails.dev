@@ -172,4 +172,20 @@ if Rails.env.development?
     last_commit: "dd605a577e6cf3334b37ce5dfa47f5f02f8ae6f2",
     adjective_list: [ "active-development"]
   })
+
+  Project.create!(
+    name: "rubygems.org",
+    slug: "rubygems-org",
+    rails_major_version: "8",
+    github: "rubygems/rubygems.org",
+    github_about: "The Ruby community's gem hosting service.",
+    contributors: 421,
+    stars: 2400,
+    forks: 947,
+    watchers: 101,
+    branch: "master",
+    last_commit: "6d8e7b121ef9731fd0b098fc5c4744252692d7a8",
+    short_blurb: "Public gem hosting service and API for the Ruby community.",
+    colour: "985f6f"
+  )
 end
