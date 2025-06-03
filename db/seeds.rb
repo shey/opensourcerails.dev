@@ -186,6 +186,6 @@ if Rails.env.development?
     branch: "master",
     last_commit: "6d8e7b121ef9731fd0b098fc5c4744252692d7a8",
     short_blurb: "Public gem hosting service and API for the Ruby community.",
-    colour: "985f6f"
+    color: "#985f6f"
   )
 end
