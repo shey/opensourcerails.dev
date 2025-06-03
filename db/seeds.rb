@@ -58,7 +58,6 @@ if Rails.env.development?
     github_about: "A platform for community discussion. Free, open, simple.",
     website: "http://www.discourse.org",
     contributors: "1",
-    dependents: "",
     stars: "33895",
     watchers: "1",
     forks: "7344",
@@ -88,7 +87,6 @@ if Rails.env.development?
     github_about: "Your self-hosted, globally interconnected microblogging community",
     website: "",
     contributors: "1",
-    dependents: "",
     stars: "24649",
     watchers: "1",
     forks: "4101",
@@ -129,7 +127,6 @@ if Rails.env.development?
     last_activity_at: "2021-08-26 14:51:22 UTC",
     color: "#686a6c",
     last_commit: "b26f3c633da51ddec11ddd15621c34d797952cad",
-    hidden_at: "",
     adjective_list: ["in-production"]
   })
 
@@ -152,7 +149,45 @@ if Rails.env.development?
     last_activity_at: "2021-08-26 14:51:22 UTC",
     color: "#686a6c",
     last_commit: "c6eae66127e1cabd7c2406758c8aa96e99bd496b",
-    hidden_at: "",
     adjective_list: ["in-production", "active-development"]
   })
+
+  Project.create!({
+    name: "Maybe",
+    slug: "maybe-finance",
+    rails_major_version: "7",
+    github: "maybe-finance/maybe",
+    github_about: "The personal finance app for everyone",
+    website: "maybefinance.com",
+    contributors: "11",
+    stars: "44500",
+    watchers: "57",
+    forks: "3300",
+    branch: "main",
+    meta_last_updated_at: "2025-06-02 00:00:00 UTC",
+    description: "Track your finances and plan your future.",
+    short_blurb: "Full-featured and open-source.",
+    last_activity_at: "2025-06-02 00:00:00 UTC",
+    color: "#1E90FF",
+    last_commit: "dd605a577e6cf3334b37ce5dfa47f5f02f8ae6f2",
+    adjective_list: [ "active-development"]
+  })
+
+  Project.create!(
+    name: "rubygems.org",
+    slug: "rubygems-org",
+    rails_major_version: "8",
+    github: "rubygems/rubygems.org",
+    github_about: "The Ruby community's gem hosting service.",
+    description: "The Ruby community's gem hosting service.",
+    contributors: 421,
+    stars: 2400,
+    forks: 947,
+    watchers: 101,
+    branch: "master",
+    last_commit: "6d8e7b121ef9731fd0b098fc5c4744252692d7a8",
+    short_blurb: "Public gem hosting service and API for the Ruby community.",
+    color: "#985f6f",
+    adjective_list: ["in-production", "active-development"]
+  )
 end
