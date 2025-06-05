@@ -190,4 +190,22 @@ if Rails.env.development?
     color: "#985f6f",
     adjective_list: ["in-production", "active-development"]
   )
+
+  Project.create!(
+    name: "ecosystems-packages",
+    slug: "ecosystems-packages",
+    rails_major_version: "8",
+    github: "ecosyste-ms/packages",
+    github_about: "An open API service providing package, version and dependency metadata of many open source software ecosystems and registries.",
+    description: "This project is part of Ecosyste.ms: Tools and open datasets to support, sustain, and secure critical digital infrastructure.",
+    contributors: 7,
+    stars: 36,
+    forks: 8,
+    watchers: 4,
+    branch: "main",
+    last_commit: "406cb5a46a03568327dd3aef82c342d43296ca25",
+    short_blurb: "API to to ecosystem's open source software directories",
+    color: "#985f6f",
+    adjective_list: ["in-production", "active-development"]
+  )
 end
