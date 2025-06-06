@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   constraints(->(request) { request.env['warden'].authenticate? }) do
     mount Sidekiq::Web => '/admin/sidekiq'
+    mount ExceptionTrack::Engine => "/i/exceptions"
   end
   
   root 'projects#index'
