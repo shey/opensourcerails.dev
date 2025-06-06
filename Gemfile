@@ -72,3 +72,4 @@ gem 'bigdecimal'
 gem 'csv'
 gem 'drb'
 gem 'base64'
+gem "exception-track", "~> 1.3"
