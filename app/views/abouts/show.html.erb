@@ -2,26 +2,13 @@
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-6 mt-5 mt-lg-0 mt-0">
-        <p class="lead text-dark mb-3 ">Hi! I'm Josh. I really like open-source. It's not only good for the environment, but also a great learning tool.</p>
-        <p class="mb-3">When I was starting my Ruby on Rails journey in 2011, I attributed a lot of my good code to that of others. This was made possible by open-source projects.</p>
-        <p class="mb-3">I would visit <a href="http://web.archive.org/web/20130512052803/http://www.opensourcerails.com/" target=_blank>OpenSourceRails.com</a> almost daily, looking for inspiration and how other people wrote code. It was invaluable to me. However, like all good things, it has moved on.</p>
-        <p class="mb-3">After receiving the nod from <a href="https://github.com/jacquescrocker" target="_blank">Jacques Crocker</a>, the original creator of OpenSourceRails.com, I created my own directory of open-source Rails projects with a small twist: a short synopsis and tagging. Thanks Jacques!</p>
-        <p class="mb-3">I'm an occasional writer of technical-ish stuff, and fraud, sometimes piracy, and sometimes pizza at <a href="https://www.josh.mn">www.josh.mn</a> and I can be found on most places on the internet as <abbr>joshmn</abbr>.</p>
-        <% if false %>
-        <%= turbo_frame_tag :newsletter_error %>
-        <%= turbo_frame_tag :newsletter do %>
-          <%= simple_form_for :newsletter, url: :newsletter, data: { 'turbo-frame': :newsletter } do |f| %>
-            <div class="input-group mb-3">
-              <%= f.input_field :email_address, placeholder: "Your email address", class: "form-control", style: "height: 50px;" %>
-              <div class="input-group-append">
-                <button class="btn btn-black" data-text="Sign up for the newsletter"><span>Sign up for my newsletter</span></button>
-              </div>
-            </div>
-          <% end %>
-          <p style="font-size:14px;">I send a brief, fun-to-read newsletter on the second Wednesday of each month with some bite-sized Railsisms and more from around the Rails community.</p>
-
-        <% end %>
-          <% end %>
+        <p class="lead text-dark mb-3 ">Hi! I'm <a href="https://shey.ca">Shey</a>. I really like open-source, it's a great learning tool.</p>
+        <p class="mb-3">
+          When I restarted my Ruby on Rails journey in 2021, I regularily visited <a href="https://web.archive.org/web/20210905131349/https://opensourcerails.org/" target="_blank">opensourcerails.org</a>. It was a an easy way to find examples of how people were building their rails apps.
+        </p>
+        <p class="mb-3">
+          At some point, the original site went down, and I missed it. So I put together this third iteration to keep that spirit alive for anyone else who learns by reading code.
+        </p>
       </div>
     </div>
   </div>
@@ -68,19 +55,16 @@
         <h4 class="text-dark mb-3 ">Credits and thanks</h4>
         <p class="">This was made possible by a lot of people.</p>
 
-        <div class="mt-4 pt-2">
+        <div class="mt-3 pt-2">
+          <p class="text-uppercase small font-weight-500 mb-1">joshmn</p>
+          <p>
+            <a href="https://github.com/joshmn" target="_blank">joshmn</a> who created the second iteration <a href="https://web.archive.org/web/20210905131349/https://opensourcerails.org/" target=_blank>OpenSourceRails.com.</a>
+          </p>
+        </div>
+
+        <div class="mt-3 pt-2">
           <p class="text-uppercase small font-weight-500 mb-1">Jacques Crocker</p>
-          <p><a href="https://github.com/jacquescrocker" target="_blank">Jacques Crocker</a> who created the original <a href="http://web.archive.org/web/20130512052803/http://www.opensourcerails.com/" target=_blank>OpenSourceRails.com</a> and gave me the go-ahead to work on his original idea.</p>
-        </div>
-
-        <div class="mt-4 pt-2">
-          <p class="text-uppercase small font-weight-500 mb-1">Hosting</p>
-          <p><a href="https://www.linode.com/?r=4e009e156eead07690ec15893ce4d466f44c6555" class="line-link text-dark">Linode takes care of hosting</a> (referral link that gets you $100 and I get $25). Their performance kicks the snot out of similar providers. Sign up using my referral link and get $100 credit, no joke.</p>
-        </div>
-
-        <div class="mt-4 pt-2">
-          <p class="text-uppercase small font-weight-500 mb-1">Infrastructure management</p>
-          <p><a href="https://hatchbox.io?via=josh-brody" class="line-link text-dark">HatchBox handles provisioning and deployment</a> so I don't have to play devops (referral link that tells Chris I love him). HatchBox is a godsend to bootstrappers like me. Try it, you'll love it, and you'll have a hard time going back to Heroku!</p>
+          <p><a href="https://github.com/jacquescrocker" target="_blank">Jacques Crocker</a> who created the original <a href="http://web.archive.org/web/20130512052803/http://www.opensourcerails.com/" target=_blank>OpenSourceRails.com</a> and gave john.mn the go-ahead to work on his original idea.</p>
         </div>
       </div>
     </div>
