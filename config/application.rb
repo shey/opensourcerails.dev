@@ -26,7 +26,7 @@ module Opensourcerails
     config.active_storage.resolve_model_to_route = :rails_storage_proxy
     config.active_storage.urls_expire_in = 1.week
 
-    config.load_defaults 6.1
+    config.load_defaults 7.1
     config.exceptions_app = routes
   end
 end

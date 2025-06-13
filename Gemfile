@@ -9,7 +9,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pg', '~> 1.5'
 gem 'bootstrap', "4.5.3"
 gem 'puma', '~> 6.4'
-gem 'rails', '~> 7'
+gem 'rails', '~> 7.1'
 gem 'redis', '~> 4.0', require: ['redis', 'redis/connection/hiredis']
 gem 'sass-rails', '>= 6'
 gem 'sprockets-rails'
