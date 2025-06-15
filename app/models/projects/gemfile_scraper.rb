@@ -9,9 +9,15 @@ module Projects
       @gems = []
     end
 
+    def ref
+      @project.branch.presence || @project.last_commit
+    end
+
+    def url
+      "https://api.github.com/repos/#{@project.github}/contents/Gemfile.lock?ref=#{ref}"
+    end
+
     def run
-      ref = @project.branch.presence || @project.last_commit
-      url = "https://api.github.com/repos/#{@project.github}/contents/Gemfile.lock?ref=#{ref}"
       response = get(url)
 
       unless response.success?
