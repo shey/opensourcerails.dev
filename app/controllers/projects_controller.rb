@@ -31,5 +31,10 @@ class ProjectsController < ApplicationController
 
   def feed
     @projects = Project.recently_added
+
+    @feed_cache_key = if (first = @projects.first)
+      "feed/rss-#{first.id}-#{first.updated_at.to_i}"
+    end
   end
+
 end

@@ -1,4 +1,4 @@
-Rails.cache.fetch("feed/rss", expires_in: 3.hours) do
+Rails.cache.fetch(@feed_cache_key, expires_in: 3.hours) do
   xml.instruct! :xml, version: "1.0"
   xml.rss version: "2.0" do
     xml.channel do
