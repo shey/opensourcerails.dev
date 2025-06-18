@@ -210,13 +210,23 @@ class Project < ApplicationRecord
     scope "without_tagged_#{type}".to_sym, -> { without_tagged(type) }
   end
 
-  scope :slim, lambda {
-                 select(:id, :slug, :name, :description, :short_blurb, :color, :updated_at).includes(:adjectives).with_attached_primary_image
-               }
-  scope :hidden, -> { where.not(hidden_at: nil) }
-  scope :visible, -> { where(hidden_at: nil).where.not(last_activity_at: nil) }
+  scope :slim, -> {
+    select(:id, :slug, :name, :description, :short_blurb, :color, :updated_at)
+      .includes(:adjectives)
+      .with_attached_primary_image
+  }
 
-  scope :recently_added, -> { visible.order(created_at: :desc).limit(20) }
+  scope :hidden, -> {
+    where.not(hidden_at: nil)
+  }
+
+  scope :visible, -> {
+    where(hidden_at: nil).where.not(last_activity_at: nil)
+  }
+
+  scope :recently_added, -> {
+    visible.order(created_at: :desc).limit(20)
+  }
 
   attribute :skip_scan, :boolean, default: false
 
