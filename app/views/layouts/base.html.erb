@@ -15,6 +15,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="canonical" href="<%= request.url %>">
+    <%= tag(:link, rel: "alternate", type: "application/rss+xml", title: "OSR – Recent Projects", href: feed_url) %>
   </head>
 
   <body>

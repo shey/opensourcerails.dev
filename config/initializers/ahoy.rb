@@ -5,6 +5,21 @@ module Ahoy
     def user
       nil
     end
+
+    def track_visit(data)
+      return if skip_tracking?
+      super
+    end
+
+    def track_event(name, properties, options)
+      return if skip_tracking?
+      super
+    end
+
+    def skip_tracking?
+      request&.path == "/feed.xml"
+    end
+
   end
 end
 
