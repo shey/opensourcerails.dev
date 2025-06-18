@@ -28,4 +28,8 @@ class ProjectsController < ApplicationController
       return head :ok
     end
   end
+
+  def feed
+    @projects = Project.recently_added
+  end
 end

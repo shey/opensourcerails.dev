@@ -216,6 +216,8 @@ class Project < ApplicationRecord
   scope :hidden, -> { where.not(hidden_at: nil) }
   scope :visible, -> { where(hidden_at: nil).where.not(last_activity_at: nil) }
 
+  scope :recently_added, -> { visible.order(created_at: :desc).limit(20) }
+
   attribute :skip_scan, :boolean, default: false
 
   after_create_commit :scan_project_first!, unless: :skip_scan?
@@ -230,6 +232,12 @@ class Project < ApplicationRecord
 
   def helpers
     Helpers.new(self)
+  end
+
+  def summary_for_feed
+    short_blurb.presence ||
+    description.presence ||
+    "An open-source Ruby on Rails project on GitHub: #{github}"
   end
 
   private
