@@ -9,32 +9,44 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.slim.visible.select(:created_at).order(created_at: :desc)
-    set_meta_tags description: 'A comprehensive, curated list of open-source Ruby on Rails applications.'
-    render layout: 'projects'
+    set_meta_tags description: "A comprehensive, curated list of open-source Ruby on Rails applications."
+    render layout: "projects"
   end
 
   def show
-    @project = Projects::ShowDecorator.new(Project.friendly.visible.find(params[:slug]))
+    @project = Projects::ShowDecorator.new(
+      Project.friendly.visible.find(params[:slug])
+    )
+
     set_meta_tags description: @project.github_about, title: @project.name,
-                  og: { title: "#{@project.name} on OpenSourceRails.dev" }
-    set_meta_tags og: { image: cdn_image_url(@project.primary_image) } if @project.primary_image.present?
-    ahoy.track '$viewed_project', slug: params[:slug]
+      og: {title: "#{@project.name} on OpenSourceRails.dev"}
+
+    set_meta_tags og: {image: cdn_image_url(@project.primary_image)} if @project.primary_image.present?
+
+    ahoy.track "$viewed_project", slug: params[:slug]
   end
 
   def update
-    if params[:api_key] == ENV['API_KEY']
+    if params[:api_key] == ENV["API_KEY"]
       @project = Project.friendly.visible.find(params[:slug])
       @project.primary_image.attach(params.permit(:primary_image)[:primary_image])
-      return head :ok
+      head :ok
     end
   end
 
   def feed
     @projects = Project.latest
 
-    @feed_cache_key = if (first = @projects.first)
-      "feed/rss-#{first.id}-#{first.updated_at.to_i}"
+    if (first = @projects.first)
+      @feed_cache_key = "feed/rss-#{first.id}-#{first.updated_at.to_i}"
+
+      feed_xml = Rails.cache.fetch(@feed_cache_key, expires_in: 3.hours) do
+        render_to_string layout: false, formats: [:xml]
+      end
+
+      render xml: feed_xml
+    else
+      head :no_content
     end
   end
-
 end

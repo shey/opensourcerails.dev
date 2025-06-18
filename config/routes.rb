@@ -6,7 +6,7 @@ require 'sidekiq-scheduler/web'
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  get "/feed.xml", to: "projects#feed", defaults: { format: :rss }, as: :feed
+  get "/feed.xml", to: "projects#feed", defaults: { format: :xml }, as: :feed
 
   ActiveAdmin.routes(self)
   constraints(->(request) { request.env['warden'].authenticate? }) do
