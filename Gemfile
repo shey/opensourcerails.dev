@@ -43,6 +43,7 @@ group :development do
   gem "ed25519"
   gem "bcrypt_pbkdf"
   gem "annotate", "~> 3.2"
+  gem "standard"
 end
 
 gem 'activeadmin'
