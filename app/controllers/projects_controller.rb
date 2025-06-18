@@ -37,18 +37,14 @@ class ProjectsController < ApplicationController
   def feed
     @projects = Project.latest
 
-    if (first = @projects.first)
-      @feed_cache_key =
-        "feed/rss-#{first.id}-#{first.updated_at.to_i}"
+    return head :no_content unless (first = @projects.first)
 
-      feed_xml =
-        Rails.cache.fetch(@feed_cache_key, expires_in: 3.hours) do
-          render_to_string layout: false, formats: [:xml]
-        end
+    @feed_cache_key = "feed/rss-#{first.id}-#{first.updated_at.to_i}"
 
-      render xml: feed_xml
-    else
-      head :no_content
+    feed_xml = Rails.cache.fetch(@feed_cache_key, expires_in: 3.hours) do
+      render_to_string layout: false, formats: [:xml]
     end
+
+    render xml: feed_xml
   end
 end
