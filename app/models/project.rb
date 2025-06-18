@@ -224,8 +224,8 @@ class Project < ApplicationRecord
     where(hidden_at: nil).where.not(last_activity_at: nil)
   }
 
-  scope :recently_added, -> {
-    visible.order(created_at: :desc).limit(20)
+  scope :latest, ->(limit = 15) {
+    visible.order(created_at: :desc).limit(limit)
   }
 
   attribute :skip_scan, :boolean, default: false
