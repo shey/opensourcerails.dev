@@ -17,9 +17,8 @@ module Ahoy
     end
 
     def skip_tracking?
-      request&.path == "/feed.xml"
+      request&.path&.start_with?("/feed.xml")
     end
-
   end
 end
 
