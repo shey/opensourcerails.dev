@@ -18,6 +18,9 @@ module Ahoy
 
     def skip_tracking?
       request&.path&.start_with?("/feed.xml")
+    rescue => e
+      Rails.logger.warn("Ahoy tracking error: #{e.message}")
+      false
     end
   end
 end
