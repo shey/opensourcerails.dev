@@ -30,8 +30,9 @@
 #
 # Indexes
 #
-#  index_projects_on_hidden_at  (hidden_at)
-#  index_projects_on_slug       (slug) UNIQUE
+#  index_projects_on_created_at_desc_for_feed  (created_at DESC,hidden_at,last_activity_at)
+#  index_projects_on_hidden_at                 (hidden_at)
+#  index_projects_on_slug                      (slug) UNIQUE
 #
 FactoryBot.define do
   factory :project do
