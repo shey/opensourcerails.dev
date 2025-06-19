@@ -8,12 +8,12 @@ module Ahoy
 
     def track_visit(data)
       return if skip_tracking?
-      super
+      super(data)
     end
 
-    def track_event(name, properties, options)
+    def track_event(event)
       return if skip_tracking?
-      super
+      super(event)
     end
 
     def skip_tracking?

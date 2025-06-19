@@ -1,0 +1,4 @@
+# .standard.yml
+ignore:
+  - config/initializers/ahoy.rb
+
