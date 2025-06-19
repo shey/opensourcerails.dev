@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_06_06_010915) do
+ActiveRecord::Schema[7.0].define(version: 2025_06_19_002001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -163,6 +163,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_06_06_010915) do
     t.json "data", default: {}, null: false
     t.integer "pulse"
     t.text "readme"
+    t.index ["created_at", "hidden_at", "last_activity_at"], name: "index_projects_on_created_at_desc_for_feed", order: { created_at: :desc }
     t.index ["hidden_at"], name: "index_projects_on_hidden_at"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
