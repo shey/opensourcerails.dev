@@ -26,14 +26,6 @@ class ProjectsController < ApplicationController
     ahoy.track "$viewed_project", slug: params[:slug]
   end
 
-  def update
-    if params[:api_key] == ENV["API_KEY"]
-      @project = Project.friendly.visible.find(params[:slug])
-      @project.primary_image.attach(params.permit(:primary_image)[:primary_image])
-      head :ok
-    end
-  end
-
   def feed
     @projects = Project.latest
 
