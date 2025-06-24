@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Project do
-  permit_params(:name, :slug, :rails_major_version, :github, :github_about, :website, :contributors, :dependents, :stars,
-    :watchers, :forks, :app, :content, :description, :primary_image, :short_blurb, :color, :hidden_at, :gems_path, :packages_path,
+  permit_params(:name, :slug, :rails_major_version, :github, :github_about, :website,
+    :contributors, :dependents, :stars, :watchers, :forks, :app, :content, :description,
+    :primary_image, :short_blurb, :color, :hidden_at, :gems_path, :packages_path, :skylight_url,
     stack_list: [], category_list: [], adjective_list: [])
 
   filter :name
@@ -164,6 +165,7 @@ ActiveAdmin.register Project do
       f.input :website
       f.input :color, as: :color_picker
       f.input :hidden_at, as: :date_time_picker
+      f.input :skylight_url
     end
     f.inputs "Rails" do
       f.input :rails_major_version
