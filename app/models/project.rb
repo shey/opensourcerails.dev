@@ -39,6 +39,7 @@
 #
 class Project < ApplicationRecord
   class MissingGems < RuntimeError; end
+
   class MissingBranch < RuntimeError; end
 
   class Helpers
@@ -81,7 +82,7 @@ class Project < ApplicationRecord
     end
 
     def scrape_app
-      raise MissingBranch, 'requires branch. Please run #scrape_meta! first.' if @project.branch.nil?
+      raise MissingBranch, "requires branch. Please run #scrape_meta! first." if @project.branch.nil?
 
       Projects::GithubAppScraper.new(@project)
     end
@@ -93,7 +94,7 @@ class Project < ApplicationRecord
     end
 
     def scrape_readme
-      raise MissingBranch, 'requires branch. Please run #scrape_meta! first.' if @project.branch.nil?
+      raise MissingBranch, "requires branch. Please run #scrape_meta! first." if @project.branch.nil?
 
       Projects::GithubReadmeScraper.new(@project)
     end
@@ -105,7 +106,7 @@ class Project < ApplicationRecord
     end
 
     def scrape_gemfile
-      raise MissingBranch, 'requires branch. Please run #scrape_meta! first.' if @project.branch.nil?
+      raise MissingBranch, "requires branch. Please run #scrape_meta! first." if @project.branch.nil?
 
       Projects::GemfileScraper.new(@project)
     end
@@ -117,7 +118,7 @@ class Project < ApplicationRecord
     end
 
     def scrape_packages
-      raise MissingBranch, 'requires branch. Please run #scrape_meta! first.' if @project.branch.nil?
+      raise MissingBranch, "requires branch. Please run #scrape_meta! first." if @project.branch.nil?
 
       Projects::PackageScraper.new(@project)
     end
@@ -129,7 +130,7 @@ class Project < ApplicationRecord
     end
 
     def analyze_stacks
-      raise MissingGems, 'requires gems. Please run #scrape_gemfile! first.' if @project.gems.empty?
+      raise MissingGems, "requires gems. Please run #scrape_gemfile! first." if @project.gems.empty?
 
       Projects::StackAnalyzer.new(@project)
     end
@@ -146,7 +147,7 @@ class Project < ApplicationRecord
 
     # this isn't used yet
     def check_pulse
-      raise MissingGems, 'requires gems. Please run #scrape_gemfile! first.' if @project.gems.empty?
+      raise MissingGems, "requires gems. Please run #scrape_gemfile! first." if @project.gems.empty?
 
       Projects::PulseCalculator.new(@project)
     end
@@ -209,7 +210,7 @@ class Project < ApplicationRecord
                          }
 
   tag_types.each do |type|
-    scope "without_tagged_#{type}".to_sym, -> { without_tagged(type) }
+    scope :"without_tagged_#{type}", -> { without_tagged(type) }
   end
 
   scope :slim, -> {
@@ -235,11 +236,11 @@ class Project < ApplicationRecord
   after_create_commit :scan_project_first!, unless: :skip_scan?
 
   def user
-    @user ||= github.split('/')[0]
+    @user ||= github.split("/")[0]
   end
 
   def repo
-    @repo ||= github.split('/')[1]
+    @repo ||= github.split("/")[1]
   end
 
   def helpers
@@ -248,15 +249,15 @@ class Project < ApplicationRecord
 
   def summary_for_feed
     short_blurb.presence ||
-    description.presence ||
-    "An open-source Ruby on Rails project on GitHub: #{github}"
+      description.presence ||
+      "An open-source Ruby on Rails project on GitHub: #{github}"
   end
 
   private
 
   def license_count
     if license_ids.size > 1
-      errors.add(:license, 'should only have one.')
+      errors.add(:license, "should only have one.")
       throw(:abort)
     end
   end
