@@ -21,6 +21,7 @@
 #  rails_major_version  :integer          not null
 #  readme               :text
 #  short_blurb          :text
+#  skylight_url         :string
 #  slug                 :string           not null
 #  stars                :integer          default(0), not null
 #  watchers             :integer          default(1), not null

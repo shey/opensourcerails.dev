@@ -314,6 +314,7 @@ GEM
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    observer (0.1.2)
     oily_png (1.2.1)
       chunky_png (~> 1.3.7)
     orm_adapter (0.5.0)
@@ -567,6 +568,7 @@ DEPENDENCIES
   meta-tags
   miro (~> 0.4.0)
   mutex_m
+  observer
   pg (~> 1.5)
   pry
   pry-rails
