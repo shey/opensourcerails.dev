@@ -206,7 +206,7 @@ class Project < ApplicationRecord
   validate :license_count
   validates :skylight_url,
     format: URI::DEFAULT_PARSER.make_regexp(%w[http https]),
-    allow_nil: true
+    allow_blank: true
 
   scope :without_tagged, lambda { |context|
                            where.not(id: ActsAsTaggableOn::Tagging.distinct(:taggable_id).select(:taggable_id).where(context: context))
