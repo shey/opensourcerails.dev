@@ -20,8 +20,8 @@
       <% if @project.website.present? %>
         <a href="<%= @project.website %>" target="_blank" class="btn btn-black btn-block" data-text="Go to website" rel="nofollow noreferrer"><span>Go to website</span></a>
       <% end %>
-      <% if @project.skylight_url.present?%>
-      <a href="<%= @project.skylight_url %>" target="_blank" class="btn btn-black btn-block" data-text="Go to Skylight" rel="nofollow noreferrer"><span>Go to Skylight</span></a>
+      <% if @project.performance_dashboard_url.present?%>
+      <a href="<%= @project.performance_dashboard_url %>" target="_blank" class="btn btn-black btn-block" data-text="Performance dashboard" rel="nofollow noreferrer"><span>Performance dashboard</span></a>
       <% end %>
     </div>
     <% if @project.app_directories.any? %>
